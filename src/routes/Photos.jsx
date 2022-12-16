@@ -9,7 +9,6 @@ const Photos = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [idphoto, setIdPhoto] = useState(null);
 
   const loadPhotos = async () => {
     try {
@@ -38,7 +37,7 @@ const Photos = () => {
     await fetch(`https://gallery-app-server.vercel.app/photos/${id}`, {
       method: 'DELETE',
     });
-    setPhotos(photos.filter((el) => el.id != id));
+    setPhotos(photos.filter((el) => el.id !== id));
   };
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const Photos = () => {
   useEffect(() => {
     setLoading(true);
     changePhotos();
-    console.log(photos);
   }, []);
 
   if (error) return <h1 style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>Error!</h1>;
