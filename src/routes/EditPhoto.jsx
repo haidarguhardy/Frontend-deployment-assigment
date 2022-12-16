@@ -11,7 +11,7 @@ const EditPhoto = () => {
   const { id } = useParams();
 
   const loadPhoto = async () => {
-    const response = await fetch(`http://localhost:3001/photos/${id}`);
+    const response = await fetch(`https://gallery-app-server.vercel.app/photos/${id}`);
     const data = await response.json();
     setImageUrl(data.imageUrl);
     setCaptions(data.captions);
